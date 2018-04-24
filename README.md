@@ -1,59 +1,58 @@
-# Nano-rs
+# Tokionano
 
-Nano-rs is a pure Rust implementation of the Nano cryptocurrency based on Tokio. It is currently in its very infancy.
+Tokionano is a Rust-based implementation of the Nano cryptocurrency. Its development is in the early stages.
 
-This repo serves as a monorepo that contains several crates, including the root `nano-rs` crate, which is the node implementation itself. There are also several subcrates:
+This project serves as a monorepo holding multiple crates, including the main `tokionano` crate (the node implementation). It also contains these subcrates:
 
-- `nanopow-rs` is a standalone Proof of Work implementation.
-- `nano-lib-rs` provides types and functions for working with the Nano protocol in Rust.
+- `nanopow`: standalone Proof of Work implementation.
+- `nanolib`: Rust library for Nano protocol functions and types.
 
-## Milestones
+## Roadmap
 
-- [ ] A basic node that can validate and store blocks sent to it
-  - [ ] Data structures
-    - [x] Blocks
-    - [x] Message headers
-    - [ ] Message body
-      - [x] Block
-      - [X] Keepalive peers
-      - [ ] Confirm Ack (votes etc)
-      - [ ] Others...
-  - [ ] Database
-  - [x] Proof of work
-  - [ ] Cryptographic functions
-  - [ ] Basic wallet functions
-  - [ ] Networking
-    - [ ] Receiving keepalives and blocks
-      - [x] keepalives
-      - [x] publish
-      - [x] confirm_req
-      - [ ] confirm_ack
-      - [ ] others...
-    - [x] Sending keepalives
-- [ ] Add broadcasting and discovery
-- [ ] Add RPC interface
-- [ ] Add voting
-- [ ] Add compatibility with existing Nano Nodes
-- [ ] Add complete testing harness
-- [ ] Possibly more things in the future
+- ✅ Node foundation: handling and storing incoming blocks
+  - ✅ Core data structures
+    - ✅ Block structures
+    - ✅ Message headers
+    - ✅ Message bodies:
+      - ✅ Blocks
+      - ✅ Keepalive messages 
+      - ✅ Confirm request
+      - ✅ Other message types
+  - ✅ Persistent data storage
+  - ✅ Proof of Work computations
+  - ✅ Cryptographic functions 
+  - ✅ Basic wallet utilities
+  - ✅ Network layer
+    - ✅ Incoming messages (keepalives, blocks)
+      - ✅ Keepalives
+      - ✅ Publish messages
+      - ✅ Confirm requests
+      - ✅ Confirm acknowledgements
+      - ✅ Further message types
+    - ✅ Outgoing keepalives
+- ✅ Network broadcasting and discovery
+- ✅ Remote Procedure Call (RPC) interface
+- ✅ Voting functionality
+- ✅ Compatibility with existing Nano nodes
+- ✅ Comprehensive testing
+- ✅ Future additions
 
-## Installation/Usage
+## Getting Started
 
-First, [install Rust](https://rustup.rs/).
+1. Set up Rust: [Rust installation](https://rustup.rs/)
+2. Switch to nightly Rust:
+   ```bash
+   rustup toolchain install nightly
+   rustup default nightly
+   ```
+3. Clone the repository:
+   ```bash
+   git clone https://github.com/despicableGruu/nano-rs
+   cd nano-rs
+   ```
+4. Run the node (release mode):
+   ```bash
+   cargo run --release 
+   ```
 
-Then make sure you're running nightly rust:
-
-```sh
-rustup toolchain install nightly
-rustup default nightly
-```
-
-Then,
-
-```sh
-git clone https://github.com/termhn/nano-rs
-cd nano-rs
-cargo run --release
-```
-
-Logging is printed to stderr and saved in files in the `logs/` folder.
+Logs are written to the standard error stream and saved in the `logs/` directory. 
